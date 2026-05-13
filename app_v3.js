@@ -927,6 +927,27 @@ function navTo(key) {
   }
 }
 
+function showMigrationPopup(newPwd) {
+  var existing = document.getElementById('migrationPopup');
+  if (existing) existing.remove();
+
+  var popup = document.createElement('div');
+  popup.id = 'migrationPopup';
+  popup.innerHTML = '<div class="migration-card">'
+    + '<div class="migration-icon">⚠️</div>'
+    + '<div class="migration-title">系统已迁移</div>'
+    + '<div class="migration-text">请移步至 <a href="https://chachaer815.github.io/cozyprice-app/" target="_blank">新版本</a></div>'
+    + '<div class="migration-pwd">新密码：<span class="migration-pwd-val">' + escHtml(newPwd) + '</span></div>'
+    + '<button class="migration-btn" onclick="closeMigration()">我知道了</button>'
+    + '</div>';
+  document.body.appendChild(popup);
+}
+
+function closeMigration() {
+  var popup = document.getElementById('migrationPopup');
+  if (popup) popup.remove();
+}
+
 async function doLogin() {
   const val = document.getElementById('pwdInput').value;
   const loginBtn = document.getElementById('btnLogin') || document.querySelector('.btn-login');
@@ -973,7 +994,35 @@ async function doLogin() {
     return;
   }
 
-  let cloudVerified = false;
+  // ✅ CloudBase 版迁移拦截：普通用户全部引导到 GitHub Pages
+  var _isCloudBase = location.hostname.includes('tcloudbaseapp.com');
+  if (_isCloudBase) {
+    if (val === 'xinxin') {
+      // 旧密码：弹迁移提示，动态获取最新新密码
+      try {
+        var _migResp = await fetch(API_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ action: 'getMigrationInfo' })
+        });
+        var _migData = await _migResp.json();
+        showMigrationPopup(_migData.newPwd || '');
+      } catch(e) {
+        showMigrationPopup('');
+      }
+    } else {
+      err.textContent = '密码错误，请重试';
+      input.value = '';
+      input.classList.remove('shake');
+      void input.offsetWidth;
+      input.classList.add('shake');
+      input.focus();
+    }
+    if (loginBtn) { loginBtn.disabled = false; loginBtn.textContent = '进 入'; }
+    return;
+  }
+
+  // ✅ GitHub 版：正常走 verifyPwd 流程
   let pwdVersion = 1;
   try {
     const vResp = await fetch(API_URL, {
