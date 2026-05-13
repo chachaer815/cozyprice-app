@@ -1023,6 +1023,7 @@ async function doLogin() {
   }
 
   // ✅ GitHub 版：正常走 verifyPwd 流程
+  let cloudVerified = false;
   let pwdVersion = 1;
   try {
     const vResp = await fetch(API_URL, {
