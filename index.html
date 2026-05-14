@@ -9,7 +9,6 @@
 <body>
 
 
-<!-- 登录遮罩 -->
 <div id="loginMask">
   <div class="login-box">
     <img src="icon-logo.png" style="width:64px; height:64px;" alt="CozyPrice">
@@ -24,13 +23,10 @@
 
 <div id="mainApp" style="display:none;">
 
-<!-- 侧边栏触发按钮 -->
 <button id="adminSidebarToggle" onclick="openAdminSidebar()" title="管理员专属 👑">👑</button>
 
-<!-- 侧边栏遮罩 -->
 <div id="adminSidebarOverlay" onclick="closeAdminSidebar()"></div>
 
-<!-- 管理员侧边栏 -->
 <div id="adminSidebar">
   <div class="sidebar-header">
     <div class="sidebar-header-title">👑</div>
@@ -38,7 +34,6 @@
   </div>
   <div class="sidebar-body">
 
-    <!-- 批量导入区块 -->
     <div class="sidebar-section">
       <div class="sidebar-section-title">📤 批量录入数据</div>
       <div style="display:flex; align-items:center; justify-content:flex-end; margin-bottom:10px;">
@@ -60,7 +55,6 @@
       <div id="importStatus" style="text-align:center; margin-top:8px; min-height:20px; font-size:13px;"></div>
     </div>
 
-    <!-- 修改密码区块 -->
     <div class="sidebar-section">
       <div class="sidebar-section-title">🔑 修改用户密码</div>
       <input type="password" id="adminAuthPwd" placeholder="管理员密码（验证身份）"
@@ -73,7 +67,6 @@
       <div id="changePwdStatus" style="text-align:center; margin-top:6px; min-height:18px; font-size:13px;"></div>
     </div>
 
-    <!-- 用户查询控制区块 -->
     <div class="sidebar-section">
       <div class="sidebar-section-title">⚙️ 用户查询控制</div>
       <div id="todayUsageDisplay" style="text-align:center; margin-bottom:12px; padding:8px 12px; background:linear-gradient(135deg,#f3e8ff,#e8d5f5); border-radius:8px; font-size:13px; color:#7c3aed;">
@@ -104,7 +97,6 @@
       <div id="settingsStatus" style="text-align:center; margin-top:6px; min-height:18px; font-size:13px;"></div>
     </div>
 
-    <!-- 修改报价区块 -->
     <div class="sidebar-section">
       <div class="sidebar-section-title">📝 修改报价</div>
       <div style="margin-bottom:8px;">
@@ -145,7 +137,6 @@
       <div id="editRecordStatus" style="text-align:center; margin-top:6px; min-height:18px; font-size:13px;"></div>
     </div>
 
-    <!-- 退出登录 -->
     <div style="padding:16px 0 4px; text-align:center;">
       <button onclick="if(confirm('确认退出登录？')){forceLogout();closeAdminSidebar();}" style="background:none; border:1.5px solid #e0d0f0; border-radius:20px; padding:8px 24px; color:#c0aad0; font-size:13px; cursor:pointer; transition:all 0.2s;" onmouseover="this.style.borderColor='#ff9aad';this.style.color='#ff9aad';" onmouseout="this.style.borderColor='#e0d0f0';this.style.color='#c0aad0';">
         退出登录
@@ -162,7 +153,6 @@
 
 <div class="container">
 
-  <!-- AI 助手模块 -->
   <div class="ai-panel" id="aiPanel">
     <div class="ai-panel-header" id="aiPanelHeader" onclick="toggleAiPanel()">
       <div class="ai-panel-title">
@@ -172,7 +162,6 @@
       <span class="ai-panel-arrow" id="aiArrow">▼</span>
     </div>
     <div class="ai-panel-body" id="aiPanelBody">
-      <!-- API Key + 模型选择 -->
       <div class="ai-key-row">
         <span class="ai-key-label">API Key</span>
         <input type="password" id="aiApiKey" placeholder="智谱 API Key（仅本地使用，不会上传）" autocomplete="off" />
@@ -187,13 +176,11 @@
             <option value="ep-20260509000136-lltld">🤖 Doubao-Seed-2.0-mini</option>
         </select>
       </div>
-      <!-- Tab 切换 -->
       <div class="ai-tabs">
         <div class="ai-tab active" id="tabInquiry" onclick="switchTab('inquiry')">📋 询价整理</div>
         <div class="ai-tab" id="tabAddress" onclick="switchTab('address')">📮 收件信息</div>
       </div>
 
-      <!-- 询价整理面板 -->
       <div id="panelInquiry">
         <div class="paste-zone" id="pasteZoneInquiry">
           <textarea class="ai-textarea" id="inquiryInput" placeholder="粘贴询价原文～" rows="4"></textarea>
@@ -216,7 +203,6 @@
         </div>
       </div>
 
-      <!-- 收件信息整理面板 -->
       <div id="panelAddress" style="display:none;">
         <div class="paste-zone" id="pasteZoneAddress">
           <textarea class="ai-textarea" id="addressInput" placeholder="请粘贴客户信息原文~" rows="4"></textarea>
@@ -238,7 +224,6 @@
     </div>
   </div>
 
-  <!-- 查询卡片 -->
   <div class="card input-area" id="queryCard">
     <textarea id="inputBox" placeholder="输入型号，一行一个～"></textarea>
     <div class="query-mode-row">
@@ -255,7 +240,6 @@
 
   <div id="resultArea"></div>
 
-  <!-- 热度看板 -->
   <div class="card" id="statsCard">
     <div class="ai-panel-header" id="statsHeader" onclick="toggleStats()">
       <div class="ai-panel-title">
@@ -274,7 +258,6 @@
     </div>
   </div>
 
-  <!-- 核对工具 -->
   <div class="card" id="checkCard">
     <div class="ai-panel-header" id="checkHeader" onclick="toggleCheck()">
       <div class="ai-panel-title">
@@ -284,13 +267,11 @@
       <span class="ai-panel-arrow" id="checkArrow">▼</span>
     </div>
     <div class="ai-panel-body" id="checkBody">
-      <!-- 模式切换 -->
       <div class="check-mode-tabs">
         <button class="check-mode-tab active" id="checkTabA" onclick="switchCheckMode('dual')">📋 双清单</button>
         <button class="check-mode-tab" id="checkTabB" onclick="switchCheckMode('system')">🗄️ 对系统</button>
       </div>
 
-      <!-- 双清单对比 -->
       <div id="checkDualPanel">
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:12px;">
           <div>
@@ -305,7 +286,6 @@
         <button class="btn-query" onclick="doDualCheck()" style="background:linear-gradient(135deg,#c084e8,#9b7fe8); font-size:14px; padding:12px;">🔍 核对</button>
       </div>
 
-      <!-- 系统基准核对 -->
       <div id="checkSystemPanel" style="display:none;">
         <div class="check-input-label">待核对清单</div>
         <textarea class="check-textarea" id="checkSystemList" placeholder="型号 数量 单价" style="margin-bottom:12px;"></textarea>
@@ -325,7 +305,6 @@
     </div>
   </div>
 
-  <!-- 工具卡片（整理 + 报价） -->
   <div class="card" id="txtTableCard">
     <div class="ai-panel-header" id="txtTableHeader" onclick="toggleTxtTable()">
       <div class="ai-panel-title">
@@ -335,13 +314,11 @@
       <span class="ai-panel-arrow" id="txtTableArrow">▼</span>
     </div>
     <div class="ai-panel-body" id="txtTableBody">
-      <!-- Tab切换 -->
       <div class="tools-tabs">
         <button class="tools-tab active" id="toolTabTxt" onclick="switchToolTab('txt')">🧹 整理</button>
         <button class="tools-tab" id="toolTabQuote" onclick="switchToolTab('quote')">💱 报价</button>
       </div>
 
-      <!-- 整理面板 -->
       <div id="toolPanelTxt">
         <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;">
           <div class="check-input-label">粘贴原始文本</div>
@@ -352,9 +329,7 @@
         <div id="txtTableResult" style="margin-top:14px;"></div>
       </div>
 
-      <!-- 报价面板 -->
       <div id="toolPanelQuote" style="display:none;">
-        <!-- 汇率设置 -->
         <div class="quote-rate-row">
           <span>🇨🇳</span>
           <span class="quote-rate-label">1 USD =</span>
@@ -363,7 +338,6 @@
           <span>🇺🇸</span>
           <span class="quote-rate-tip">汇率自动记住～</span>
         </div>
-        <!-- 报价表格 -->
         <div class="quote-table-wrap">
           <table class="quote-table" id="quoteTable">
             <thead>
@@ -383,30 +357,24 @@
             </tbody>
           </table>
         </div>
-        <!-- 操作按钮 -->
         <div class="quote-action-row">
           <button class="btn-quote-action copy" onclick="copyQuoteTable()">📋 复制表格</button>
           <button class="btn-quote-action mail" onclick="genQuoteMail()">✉️ 生成邮件</button>
           <button class="btn-quote-action clear" onclick="clearQuoteTable()">🗑️ 清空</button>
         </div>
 
-        <!-- 邮件编辑区 -->
         <div class="mail-editor-wrap" id="mailEditorWrap">
-          <!-- 格式切换 -->
           <div class="mail-format-row">
             <span class="mail-format-label">格式</span>
             <button class="mail-fmt-btn active" id="fmtBtnText" onclick="switchMailFmt('text')">📄 纯文本</button>
             <button class="mail-fmt-btn" id="fmtBtnHtml" onclick="switchMailFmt('html')">📊 表格邮件</button>
           </div>
-          <!-- 编辑框 -->
           <textarea class="mail-textarea" id="mailEditor" placeholder="邮件内容在这里，可以直接编辑～"></textarea>
-          <!-- 复制行 -->
           <div class="mail-copy-row">
             <button class="btn-mail-copy" onclick="copyMailEditor()">📋 复制文本</button>
             <button class="btn-mail-copy html" id="btnCopyHtml" onclick="copyMailHtml()" style="display:none;">🌐 复制富文本</button>
           </div>
 
-          <!-- 模板管理 -->
           <div class="mail-tpl-wrap" id="mailTplWrap">
             <div class="mail-tpl-title">💾 常用模板</div>
 
@@ -454,10 +422,7 @@
     </div>
   </div>
 
-</div><!-- /container -->
-</div><!-- /mainApp -->
 
-<!-- 底部导航栏 -->
 <nav class="bottom-nav" id="bottomNav">
   <button class="bnav-btn active" id="bnav-query" onclick="navTo('query')">
     <img src="icon-search.png" style="width:20px; height:20px;" alt="查询">
@@ -483,7 +448,6 @@
 
 
 
-<!-- 总价汇总浮动条 -->
 <div id="totalBar">
   <div class="total-bar-left">
     <span class="total-bar-label">💰 合计</span>
@@ -496,14 +460,10 @@
   </div>
 </div>
 
-<!-- 复制成功提示 -->
 <div class="copy-toast" id="copyToast">🌸 已复制</div>
 
 <script src="app_v3.js?v=20260514b"></script>
 
-<!-- ===================================================
-     📖 使用说明弹窗
-     =================================================== -->
 <div id="helpModal" style="display:none;">
   <div id="helpModalOverlay" onclick="closeHelpModal()"></div>
   <div id="helpModalBox">
