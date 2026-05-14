@@ -345,7 +345,6 @@
     transform: translateX(-50%) translateY(0);
   }
 
-  /* ===== AI 助手模块 ===== */
   .ai-panel {
     /* 玻璃拟态效果 */
     background: rgba(255, 255, 255, 0.7);
@@ -390,7 +389,6 @@
   .ai-panel-body { padding: 20px 20px 20px; display: none; }
   .ai-panel-body.open { display: block; }
 
-  /* API Key 行 */
   .ai-key-row { display: flex; gap: 10px; margin-bottom: 16px; align-items: center; }
   .ai-key-row input {
     flex: 1; padding: 10px 14px; border: 1.5px solid #e5e4e2; border-radius: 10px;
@@ -417,7 +415,6 @@
   .ai-model-row .ai-model-select {
     width: 100%;
   }
-  /* Tab 切换 */
   .ai-tabs { display: flex; gap: 6px; margin-bottom: 12px; }
   .ai-tab {
     flex: 1; padding: 8px 4px; border: 1px solid #e5e4e2; border-radius: 8px;
@@ -498,7 +495,6 @@
   .ai-model-select:focus { border-color: #94a3b8; background: #ffffff; }
   .ai-model-select option { color: #475569; background: white; }
 
-  /* AI加载动画 */
   .ai-loading { text-align: center; padding: 16px; color: #94a3b8; font-size: 13px; }
   .ai-spin { display: inline-block; animation: spin 1s linear infinite; }
   @keyframes spin { to { transform: rotate(360deg); } }
@@ -547,7 +543,6 @@
     100% { opacity: 0.8; transform: scale(1); }
   }
 
-  /* ===== 数量输入 + 小计 ===== */
   .qty-row {
     display: flex; align-items: center; gap: 10px;
     padding: 10px 28px 14px;
@@ -569,7 +564,6 @@
   }
   .qty-subtotal-label { font-size: 12px; color: #b8a7d5; }
 
-  /* ===== 总价汇总浮动条 ===== */
   #totalBar {
     position: fixed; bottom: 0; left: 0; right: 0; z-index: 1100;
     background: linear-gradient(135deg, rgba(255,255,255,0.97), rgba(250,240,255,0.97));
@@ -612,7 +606,6 @@
   body.has-bnav.has-totalbar .container { padding-bottom: 140px; }
   body:not(.has-bnav).has-totalbar .container { padding-bottom: 80px; }
 
-  /* ===== 全部转表按钮 ===== */
   .btn-addall {
     display: inline-block; padding: 8px 18px; margin-left: 10px;
     background: #f1f0ee; color: #64748b; border: 1px solid #e5e4e2;
@@ -621,13 +614,11 @@
   }
   .btn-addall:hover { background: #e5e4e2; transform: translateY(-1px); }
 
-  /* ===== 报价表格总价行 ===== */
   .quote-total-row td {
     background: #f1f0ee !important;
     font-weight: 600 !important; border-top: 1px solid #e5e4e2 !important;
   }
 
-  /* ===== 管理员侧边栏 ===== */
   /* 触发按钮（固定在右侧） */
   #adminSidebarToggle {
     display: none;
@@ -715,7 +706,6 @@
     margin-bottom: 14px; display: flex; align-items: center; gap: 8px;
   }
 
-  /* ===== 查询统计看板 ===== */
   .stats-grid {
     display: flex; flex-direction: column; gap: 10px;
   }
@@ -742,7 +732,6 @@
   .stats-rank-bar { height: 100%; background: linear-gradient(90deg, #b8d4e8, #9fc5dc); border-radius: 4px; transition: width 0.6s ease; }
   .stats-rank-count { font-size: 13px; color: #9fc5dc; font-weight: 700; min-width: 32px; text-align: right; }
 
-  /* ===== 数据核对模块 ===== */
   .check-mode-tabs {
     display: flex; gap: 0; border-radius: 12px; overflow: hidden;
     border: 1.5px solid #c8e4f4; margin-bottom: 16px;
@@ -868,7 +857,6 @@
   .btn-to-table:hover { background:#f0f8ff; border-color:#b8d4e8; transform:scale(1.05); }
   .btn-to-table.sent { color:#2e7d52; border-color:#a5d6a7; background:#f0fff4; }
 
-  /* 工具卡片 Tab */
   .tools-tabs { display:flex; gap:8px; margin-bottom:20px; }
   .tools-tab {
     flex:1; padding:9px 0; font-size:13px; font-weight:600; text-align:center;
@@ -1006,7 +994,6 @@
     .input-area textarea { padding: 14px 16px; font-size: 14px; }
     .btn-query { font-size: 15px; padding: 14px; border-radius: 14px; }
 
-    /* AI 助手 */
     .ai-panel { border-radius: 16px; }
     .ai-panel-header { padding: 16px 18px; }
     .ai-panel-body { padding: 16px 14px 18px; }
@@ -1035,7 +1022,6 @@
     .admin-sidebar { width: 100vw !important; }
   }
 
-  /* ===== 底部导航栏 ===== */
   .bottom-nav {
     position: fixed; bottom: 0; left: 0; right: 0; z-index: 1000;
     background: rgba(255,255,255,0.96);
@@ -1068,7 +1054,6 @@
 
 
 
-/* ============================== CozyPrice 美化 ============================== */
 body {
   background: linear-gradient(135deg, #fdf2f8 0%, #f0f9ff 50%, #fef7ff 100%) !important;
   background-attachment: fixed !important;
