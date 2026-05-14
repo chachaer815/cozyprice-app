@@ -32,6 +32,31 @@ const API_URL = 'https://chachachaer-815-9g314rmp456d83e8-1411385817.ap-shanghai
 
 const VISION_MODELS = ['glm-4v-think-flash', 'glm-4.6v-flash', 'ep-20260509000136-lltld'];
 
+// ========== 皮肤切换（轻量版 🐰） ==========
+const SKIN_KEY = 'bq_skin_gh_v1';
+function toggleSkin() {
+  document.body.classList.toggle('theme-lite');
+  var on = document.body.classList.contains('theme-lite');
+  localStorage.setItem(SKIN_KEY, on ? 'lite' : '');
+  var btn = document.getElementById('skinToggle');
+  if (btn) {
+    btn.textContent = on ? '🐰' : '💜';
+    btn.title = on ? '切换为默认皮肤' : '切换为轻量版';
+  }
+}
+(function() {
+  if (localStorage.getItem(SKIN_KEY) === 'lite') {
+    document.body.classList.add('theme-lite');
+  }
+  var btn = document.getElementById('skinToggle');
+  if (btn) {
+    var on = document.body.classList.contains('theme-lite');
+    btn.textContent = on ? '🐰' : '💜';
+    btn.title = on ? '切换为默认皮肤' : '切换为轻量版';
+  }
+})();
+
+
 async function doQuery() {
   const raw = document.getElementById('inputBox').value.trim();
   if (!raw) return;
@@ -888,9 +913,13 @@ function forceLogout(msg) {
   document.getElementById('adminSidebarToggle').style.display = 'none';
   var _ub2 = document.getElementById('userLogoutBtn');
   if (_ub2) _ub2.style.display = 'none';
+  var _st2 = document.getElementById('skinToggle');
+  if (_st2) _st2.style.display = 'none';
 }
 
 function showMainApp() {
+  var _st = document.getElementById('skinToggle');
+  if (_st) _st.style.display = 'block';
   document.getElementById('mainApp').style.display = 'block';
   document.getElementById('bottomNav').classList.add('visible');
   document.body.classList.add('has-bnav');
