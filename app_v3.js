@@ -87,6 +87,7 @@ async function doQuery() {
       forceLogout('密码已修改，请重新登录');
       return;
     }
+    // ✅ 捕获云函数鉴权失败（HTTP200 + error code），避免静默显示"暂无结果"
     if (data && data.code === 'NEED_LOGIN') {
       forceLogout('登录已过期，请重新输入密码');
       return;
@@ -626,6 +627,8 @@ Output: [{"model":"SPBRC410 123456","qty":5},{"model":"IPMONO1","qty":2},{"model
 
     const file = imageItem.getAsFile();
 
+    // ✅ 智能压缩（渐进降质，硬顶 500KB，避免 413/504）
+    // ✅ 智能压缩（渐进降质，硬顶 500KB，避免 413/504）
     var compressed;
     try {
       compressed = await smartCompress(file);
@@ -991,6 +994,7 @@ async function doLogin() {
     return;
   }
 
+  // ✅ CloudBase 版迁移拦截：普通用户全部引导到 GitHub Pages
   var _isCloudBase = location.hostname.includes('tcloudbaseapp.com');
   if (_isCloudBase) {
     if (val === 'xinxin') {
@@ -1018,6 +1022,7 @@ async function doLogin() {
     return;
   }
 
+  // ✅ GitHub 版：正常走 verifyPwd 流程
   let cloudVerified = false;
   let pwdVersion = 1;
   try {
@@ -1081,6 +1086,8 @@ async function doLogin() {
       document.getElementById('adminSidebarToggle').style.display = 'block';
     }
 
+    // ✅ 普通用户后台静默验密（先展UI不阻塞，异步确认密码是否仍有效）
+    // ✅ 普通用户后台静默验密（先展UI不阻塞，异步确认密码是否仍有效）
     var _role = sessionStorage.getItem(SESSION_ROLE);
     var _savedPwd = sessionStorage.getItem('userPwd') || '';
     if (_role !== 'admin' && _savedPwd) {
@@ -1428,6 +1435,7 @@ async function doUpdateSettings() {
   }
 }
 
+// ========== 修改报价功能 ==========
 let _selectedRecordId = null;
 
 async function doSearchRecords() {
@@ -2111,6 +2119,7 @@ async function doSystemCheck() {
     });
     const data = await res.json();
     if (res.status === 401 && data.forceLogout) { forceLogout('密码已修改，请重新登录'); return; }
+    // ✅ 捕获鉴权失败（与 doQuery 保持一致）
     if (data && data.code === 'NEED_LOGIN') {
       forceLogout('登录已过期，请重新输入密码');
       return;
