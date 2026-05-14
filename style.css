@@ -1150,3 +1150,262 @@ input:focus, textarea:focus, select:focus {
   transition: transform 0.15s ease;
 }
 .migration-btn:active { transform: scale(0.97); }
+
+/* ============================== 轻量版皮肤 🐰 ============================== */
+/* 纸张纹理 + 虚线框 + 波浪按钮 + 仅小助手和查价                   */
+/* =================================================================== */
+
+body.theme-lite {
+  background-color: #fdfbf7 !important;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7 3.134-7 7 3.134 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-77c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm11-27c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm-9-54c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3z' fill='%23e07a5f' fill-opacity='0.04' fill-rule='evenodd'/%3E%3C/svg%3E") !important;
+}
+
+/* ===== 登录页面 ===== */
+body.theme-lite #loginMask {
+  background: #fdfbf7 !important;
+}
+body.theme-lite .login-box {
+  background: #ffffff !important;
+  border: 2px dashed rgba(0,0,0,0.1) !important;
+  border-radius: 24px !important;
+  box-shadow: 6px 6px 0px rgba(0,0,0,0.04) !important;
+  position: relative !important;
+}
+body.theme-lite .login-box::before {
+  content: '' !important;
+  position: absolute !important;
+  top: -10px !important;
+  left: 50% !important;
+  transform: translateX(-50%) rotate(-3deg) !important;
+  width: 70px !important;
+  height: 22px !important;
+  background: rgba(224, 122, 95, 0.2) !important;
+  border: 1.5px dashed rgba(0,0,0,0.1) !important;
+  border-radius: 2px !important;
+  z-index: 10 !important;
+}
+body.theme-lite .login-box h2 {
+  color: #e07a5f !important;
+  font-family: 'Ma Shan Zheng', cursive !important;
+}
+body.theme-lite .login-box .btn-login {
+  background: #e07a5f !important;
+  border-radius: 999px !important;
+}
+
+/* ===== 顶部标题栏 ===== */
+body.theme-lite .header {
+  background: rgba(253, 251, 247, 0.92) !important;
+  border-bottom: 1px solid rgba(0,0,0,0.06) !important;
+  border-radius: 0 0 28px 28px !important;
+  text-align: left !important;
+  padding: 22px 24px !important;
+}
+body.theme-lite .header h1 {
+  color: #e07a5f !important;
+  font-family: 'Ma Shan Zheng', cursive !important;
+  font-size: 32px !important;
+  font-weight: 400 !important;
+  margin-bottom: 0 !important;
+}
+body.theme-lite .header h1 img {
+  display: none !important;
+}
+
+/* ===== 所有卡片 ===== */
+body.theme-lite .card,
+body.theme-lite .ai-panel {
+  background: #ffffff !important;
+  border: 2px dashed rgba(0,0,0,0.08) !important;
+  border-radius: 24px !important;
+  box-shadow: 6px 6px 0px rgba(0,0,0,0.04) !important;
+  position: relative !important;
+}
+/* 胶带装饰 */
+body.theme-lite .card::before,
+body.theme-lite .ai-panel::before {
+  content: '' !important;
+  position: absolute !important;
+  top: -10px !important;
+  left: 50% !important;
+  transform: translateX(-50%) rotate(-3deg) !important;
+  width: 70px !important;
+  height: 22px !important;
+  background: rgba(224, 122, 95, 0.2) !important;
+  border: 1.5px dashed rgba(0,0,0,0.1) !important;
+  border-radius: 2px !important;
+  z-index: 10 !important;
+}
+
+/* ===== 所有输入框 ===== */
+body.theme-lite input[type="text"],
+body.theme-lite input[type="password"],
+body.theme-lite input[type="number"],
+body.theme-lite input[type="date"],
+body.theme-lite textarea,
+body.theme-lite select {
+  border: 2px dashed #ddd !important;
+  background: rgba(255,255,255,0.7) !important;
+  border-radius: 12px !important;
+  color: #3d3d3d !important;
+}
+body.theme-lite input:focus,
+body.theme-lite textarea:focus,
+body.theme-lite select:focus {
+  outline: none !important;
+  border-color: #e07a5f !important;
+  box-shadow: 0 0 0 3px rgba(224, 122, 95, 0.1) !important;
+  background: #ffffff !important;
+}
+
+/* ===== 主要按钮 ===== */
+body.theme-lite .btn-query,
+body.theme-lite .btn-ai,
+body.theme-lite .btn-login,
+body.theme-lite .btn-total-copy,
+body.theme-lite .btn-mail-copy,
+body.theme-lite #helpModalConfirm,
+body.theme-lite .migration-btn {
+  position: relative !important;
+  background: #e07a5f !important;
+  border-radius: 999px !important;
+  color: #fff !important;
+  font-weight: 700 !important;
+  border: none !important;
+  box-shadow: 0 2px 8px rgba(224, 122, 95, 0.2) !important;
+}
+body.theme-lite .btn-query::after,
+body.theme-lite .btn-ai::after,
+body.theme-lite .btn-login::after,
+body.theme-lite .btn-total-copy::after,
+body.theme-lite .btn-mail-copy::after,
+body.theme-lite #helpModalConfirm::after,
+body.theme-lite .migration-btn::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: -5px !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 4px !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 4'%3E%3Cpath d='M0,2 Q5,0 10,2 T20,2' stroke='%23e07a5f' fill='none' stroke-width='2'/%3E%3C/svg%3E") !important;
+  background-repeat: repeat-x !important;
+  opacity: 0.8 !important;
+  pointer-events: none !important;
+}
+body.theme-lite .btn-query:hover,
+body.theme-lite .btn-ai:hover {
+  transform: scale(1.03) !important;
+  background: #c96a50 !important;
+}
+
+/* ===== 查询卡片 ===== */
+body.theme-lite #queryCard {
+  padding-top: 54px !important;
+}
+body.theme-lite #queryCard::after {
+  content: "型号查价" !important;
+  position: absolute !important;
+  top: 18px !important;
+  left: 20px !important;
+  font-family: 'Ma Shan Zheng', cursive !important;
+  font-size: 22px !important;
+  color: #e07a5f !important;
+  z-index: 5 !important;
+}
+body.theme-lite #queryCard .btn-query {
+  width: auto !important;
+  padding: 8px 28px !important;
+  font-size: 14px !important;
+  margin-top: 10px !important;
+  margin-left: auto !important;
+  margin-right: 0 !important;
+  display: block !important;
+}
+
+/* ===== 小助手 AI面板 ===== */
+body.theme-lite .ai-panel-title {
+  color: #3d3d3d !important;
+  font-weight: 700 !important;
+  font-family: 'Ma Shan Zheng', cursive !important;
+}
+body.theme-lite .ai-panel-header {
+  padding: 12px 16px !important;
+  background: transparent !important;
+}
+
+/* ===== 隐藏不需要的模块 ===== */
+body.theme-lite #statsCard,
+body.theme-lite #checkCard,
+body.theme-lite #txtTableCard {
+  display: none !important;
+}
+body.theme-lite #bnav-stats,
+body.theme-lite #bnav-check,
+body.theme-lite #bnav-txt {
+  display: none !important;
+}
+body.theme-lite #totalBar {
+  display: none !important;
+}
+
+/* ===== 底部导航 ===== */
+body.theme-lite .bnav-label {
+  font-family: 'Ma Shan Zheng', cursive !important;
+  font-size: 12px !important;
+  color: #b8a89a !important;
+}
+body.theme-lite .bnav-btn.active .bnav-label {
+  color: #e07a5f !important;
+}
+
+/* ===== 统一字体（手写体） ===== */
+body.theme-lite .btn-query,
+body.theme-lite .btn-ai,
+body.theme-lite .btn-login,
+body.theme-lite .btn-total-copy,
+body.theme-lite .btn-mail-copy,
+body.theme-lite .btn-batch-query,
+body.theme-lite .btn-fill,
+body.theme-lite .ai-tab,
+body.theme-lite .mode-toggle label,
+body.theme-lite .check-mode-tab,
+body.theme-lite .tools-tab,
+body.theme-lite #helpModalConfirm,
+body.theme-lite .migration-btn {
+  font-family: 'Ma Shan Zheng', cursive !important;
+  letter-spacing: 0.5px !important;
+}
+
+/* ===== 结果卡片 ===== */
+body.theme-lite .result-item {
+  border: 2px dashed rgba(0,0,0,0.08) !important;
+  border-radius: 20px !important;
+  background: #ffffff !important;
+  box-shadow: 4px 4px 0px rgba(0,0,0,0.04) !important;
+}
+body.theme-lite .result-header {
+  background: rgba(224, 122, 95, 0.04) !important;
+}
+body.theme-lite .latest-val {
+  color: #e07a5f !important;
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: unset !important;
+  background-clip: unset !important;
+}
+
+/* ===== 管理侧边栏 ===== */
+body.theme-lite .sidebar-header {
+  background: #e07a5f !important;
+}
+
+/* ===== 移动端适配 ===== */
+@media (max-width: 480px) {
+  body.theme-lite .card,
+  body.theme-lite .ai-panel {
+    border-radius: 20px !important;
+  }
+  body.theme-lite .header h1 {
+    font-size: 24px !important;
+  }
+}
